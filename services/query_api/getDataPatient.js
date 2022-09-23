@@ -26,17 +26,16 @@ module.exports = {
 
     // เช็คตัวแปรวันที่ที่ส่งเข้ามา หากไม่ใช่ให้แทนที่ด้วยวันที่อื่นลงไป
     // console.log(dateIsValid(new Date(value.sdate)));
-    if ( dateIsValid(new Date(value.sdate)) ) {
+    if (dateIsValid(new Date(value.sdate))) {
       replacesql = replacesql.replace(/{sdate}/g, `'${value.sdate}'`);
     } else {
       replacesql = replacesql.replace(/{sdate}/g, `'1000-01-01'`);
     }
-    if ( dateIsValid(new Date(value.sdate)) ) {
+    if (dateIsValid(new Date(value.sdate))) {
       replacesql = replacesql.replace(/{edate}/g, `'${value.sdate}'`);
     } else {
       replacesql = replacesql.replace(/{edate}/g, `'1000-01-01'`);
     }
-
 
     replacesql = replacesql.replace(/{stime}/g, `'${value.stime}'`);
     replacesql = replacesql.replace(/{etime}/g, `'${value.etime}'`);
