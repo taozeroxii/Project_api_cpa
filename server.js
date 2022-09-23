@@ -30,7 +30,7 @@ function indall_api() {
 }
 
 indall_api().then(function (result) {
-  server.locals.variable_you_need = result;
+  server.locals.variable_you_need = result;// Global valible js
   server.use("/v1/api/", require("./router")); //Main Route สำหรับ api ต่างๆ
   server.get("*", (req, res) => {
     res.json({
