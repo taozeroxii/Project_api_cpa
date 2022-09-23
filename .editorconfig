@@ -1,0 +1,11 @@
+# editorconfig.org
+root = true
+
+[*] # กำหนดสำหรับทุกไฟล์
+indent_style = space
+indent_size = 2 # ปรับให้ทุกเอกสารเมื่อกด tab ให้เว้นช่องว่างแค่2เคาะจาก vscode ที่ตั้งไว้ 4 เคาะ
+tab_width = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true

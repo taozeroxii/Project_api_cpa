@@ -11,7 +11,7 @@ server.use(cors())
 var helmet = require('helmet')
 server.use(helmet())
 
-// Set Parses JSON 
+// Set Parses JSON
 server.use(express.json())
 server.use(bodyParser.urlencoded({ extended: false,limit:'500MB' }));
 server.use(bodyParser.json());
@@ -29,11 +29,11 @@ function indall_api() {
 
 indall_api().then( function(result) {
     server.locals.variable_you_need = result;
-    server.use('/v1/api/',require('./router'))//Main Route สำหรับ api ต่างๆ 
+    server.use('/v1/api/',require('./router'))//Main Route สำหรับ api ต่างๆ
     server.get('*', (req, res) => {
         res.json({ok:'true',message:'Chaopaya Abhaibubaje Api is started !!',api_version:process.env.VERSION_API});
     })
-}) 
+})
 
 server.listen(PORT, () => {
   console.log(`Server Started ON http://localhost:${PORT}`);

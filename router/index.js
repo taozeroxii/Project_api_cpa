@@ -5,6 +5,7 @@ const service = require('../services/query_api/getDataPatient')
 
 connection.query( `SELECT * FROM cpa_report_url_api where status = 'Y' order by id`,(error, result) => {
     if (error) return reject(error);
+    
     for(var i = 0 ;i< result.length ;i++){
         if(result[i].methods =='POST'){
             router.post(result[i].url,async (req,res) =>{
@@ -30,7 +31,8 @@ connection.query( `SELECT * FROM cpa_report_url_api where status = 'Y' order by 
                 for(var i = 0 ;i< result.length ;i++){
                     if(req.url == req.app.locals.variable_you_need[i].url){
                         try{
-                            return res.status(200).json({url:req.url,sql: req.app.locals.variable_you_need[i].sql_query})
+                            console.log( req.params.id) // test ส่ง id มาทาง url ในid  ส่งเป็นค่าอะไรก็ได้ที่เป็นตัวเลข เช่น hn vn an 
+                            return res.status(200).json({url:req.url,sql: req.app.locals.variable_you_need[i].sql_query ,id: req.params.id})
                         }catch(err){ console.log(err)  }
                      
                     }
